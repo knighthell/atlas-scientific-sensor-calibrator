@@ -2,7 +2,7 @@
   <configuration default="false" name="Build for Linux X64" type="GoApplicationRunConfiguration" factoryName="Go Application">
     <module name="atlas-scientific-sensor-calibrator" />
     <working_directory value="$PROJECT_DIR$/" />
-    <go_parameters value="-i" />
+    <go_parameters value="-i -o ./bin/atlas-scientific-sensor-calibrator" />
     <envs>
       <env name="GOOS" value="linux" />
       <env name="GOARCH" value="amd64" />
