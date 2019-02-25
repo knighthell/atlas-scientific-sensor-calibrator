@@ -74,4 +74,4 @@ fabric.properties
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
 
-sensor-calibrator_*
+!atlas-scientific-sensor-calibrator*
