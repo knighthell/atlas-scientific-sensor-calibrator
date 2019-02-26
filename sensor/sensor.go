@@ -20,13 +20,14 @@ type Sensors struct {
 	PH  PHSensor
 }
 
-func GetSensors(sensorType string) (*RTDSensor, *ECSensor, *DOSensor, *PHSensor, error) {
+func GetSensors(sensorType []string) (*RTDSensor, *ECSensor, *DOSensor, *PHSensor, error) {
 
 	var rtd RTDSensor
 	var ph PHSensor
 	var do DOSensor
 	var ec ECSensor
 
+	fmt.Println("연결된 센서를 찾고있습니다...")
 	ports, err := enumerator.GetDetailedPortsList()
 	if err != nil {
 		log.Fatal(err)

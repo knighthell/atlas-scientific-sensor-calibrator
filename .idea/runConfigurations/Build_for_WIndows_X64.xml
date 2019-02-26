@@ -10,6 +10,7 @@
     <kind value="FILE" />
     <filePath value="$PROJECT_DIR$/main.go" />
     <directory value="$PROJECT_DIR$/" />
+    <option name="run" value="false" />
     <method v="2" />
   </configuration>
 </component>

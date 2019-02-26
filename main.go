@@ -3,28 +3,42 @@ package main
 import (
 	"./sensor"
 	"fmt"
+	"os"
+	"strings"
 )
 
 func main() {
 
-	rtd, ec, do, ph, err := sensor.GetSensors("a")
+	args := os.Args[1:]
+
+	var sensingTypes string
+	if len(args) == 0 {
+		sensingTypes = "ALL"
+	} else {
+		sensingTypes = strings.ToUpper(strings.Join(args, ", "))
+	}
+
+	fmt.Printf("설정할 센서 목록: %s\n", sensingTypes)
+
+
+	rtd, ec, do, ph, err := sensor.GetSensors(args)
 	if err != nil {
 		fmt.Printf("센서 포트를 설정하는데 오류가 났습니다.\n%v\n", err)
 	}
 
-	if rtd != nil {
+	if rtd.Port != nil {
 		rtd.Calibration()
 	}
 
-	if ec != nil {
+	if ec.Port != nil {
 		ec.Calibration()
 	}
 
-	if do != nil {
+	if do.Port != nil {
 		do.Calibration()
 	}
 
-	if ph != nil {
+	if ph.Port != nil {
 		ph.Calibration()
 	}
 
